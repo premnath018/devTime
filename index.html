@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <!-- SEO Meta Tags -->
-    <title>DevTime - Global Time Zone Converter & Unix Timestamp Generator for Developers</title>
+    <title>DevTimez - Global Time Zone Converter & Unix Timestamp Generator for Developers</title>
     <meta name="description" content="Free online timezone converter and Unix timestamp generator for developers. View live world clocks, convert time zones, and generate accurate timestamps across 11 global regions including USA, India, UK, Europe, Australia, China, Japan, Singapore, UAE.">
     <meta name="keywords" content="timezone converter, unix timestamp, time zone tool, developer tools, world clock, GMT converter, UTC time, timestamp generator, global time zones, developer timezone, international time, time conversion">
-    <meta name="author" content="DevTime">
+    <meta name="author" content="DevTimez">
     <meta name="robots" content="index, follow">
     <meta name="language" content="English">
     
@@ -32,7 +32,7 @@
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "DevTime",
+      "name": "DevTimez",
       "applicationCategory": "DeveloperApplication",
       "description": "Professional timezone converter and Unix timestamp generator for developers working across global teams. Support for 11 global regions including USA, India, UK, Europe, Australia, China, Japan, Singapore, UAE.",
       "operatingSystem": "Any",
@@ -48,7 +48,7 @@
       },
       "author": {
         "@type": "Organization",
-        "name": "DevTime"
+        "name": "DevTimez"
       },
       "featureList": [
         "Live world clocks for 11 global timezones",
@@ -1033,7 +1033,7 @@
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center" href="#">
                 <i class="bi bi-clock-history me-2 fs-3"></i>
-                <span>DevTime</span>
+                <span>DevTimez</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas">
                 <span class="navbar-toggler-icon"></span>
@@ -1379,7 +1379,7 @@
                     Real-time timezone conversion • Accurate Unix timestamps • 11 Global regions
                 </p>
                 <p class="mt-3 mb-0" style="opacity: 0.5; font-size: 0.8rem;">
-                    © 2026 DevTime. All times calculated using IANA timezones.
+                    © 2026 DevTimez. All times calculated using IANA timezones.
                 </p>
             </div>
         </div>
@@ -1806,7 +1806,7 @@
         // Copy all times button
         document.getElementById('copyAllTimesBtn').addEventListener('click', () => {
             const now = new Date();
-            let allTimes = 'DevTime - Current Times Across Global Zones\n';
+            let allTimes = 'DevTimez - Current Times Across Global Zones\n';
             allTimes += '═'.repeat(50) + '\n\n';
             
             SORTED_TIMEZONES.forEach(tz => {
@@ -1822,7 +1822,7 @@
             
             allTimes += '═'.repeat(50) + '\n';
             allTimes += `Generated at: ${new Date().toISOString()}\n`;
-            allTimes += 'Source: DevTime\n';
+            allTimes += 'Source: DevTimez\n';
             
             copyToClipboard(allTimes, '✅ All times copied to clipboard!');
         });
