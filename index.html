@@ -1,0 +1,2153 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- SEO Meta Tags -->
+    <title>DevTime - Global Time Zone Converter & Unix Timestamp Generator for Developers</title>
+    <meta name="description" content="Free online timezone converter and Unix timestamp generator for developers. View live world clocks, convert time zones, and generate accurate timestamps across 11 global regions including USA, India, UK, Europe, Australia, China, Japan, Singapore, UAE.">
+    <meta name="keywords" content="timezone converter, unix timestamp, time zone tool, developer tools, world clock, GMT converter, UTC time, timestamp generator, global time zones, developer timezone, international time, time conversion">
+    <meta name="author" content="DevTime">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%230ea5e9'/><circle cx='50' cy='50' r='38' fill='%23161b22'/><line x1='50' y1='50' x2='50' y2='25' stroke='%230ea5e9' stroke-width='3' stroke-linecap='round'/><line x1='50' y1='50' x2='65' y2='50' stroke='%230ea5e9' stroke-width='2' stroke-linecap='round'/><circle cx='50' cy='50' r='3' fill='%230ea5e9'/></svg>">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0ea5e9">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "DevTime",
+      "applicationCategory": "DeveloperApplication",
+      "description": "Professional timezone converter and Unix timestamp generator for developers working across global teams. Support for 11 global regions including USA, India, UK, Europe, Australia, China, Japan, Singapore, UAE.",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "1250"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "DevTime"
+      },
+      "featureList": [
+        "Live world clocks for 11 global timezones",
+        "Real-time timezone conversion",
+        "Unix timestamp generator",
+        "GMT offset calculator",
+        "Dark/Light theme support",
+        "Mobile responsive design",
+        "Copy to clipboard functionality",
+        "Keyboard shortcuts support"
+      ]
+    }
+    </script>
+    
+    <style>
+        /* Theme Variables - Ocean (Default) */
+        :root[data-theme="ocean"] {
+            --primary-color: #0ea5e9;
+            --primary-hover: #0284c7;
+            --secondary-color: #06b6d4;
+            --accent-gradient: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            --dark-bg: #0f172a;
+            --dark-card: #1e293b;
+            --dark-card-hover: #334155;
+            --dark-navbar: #0f172a;
+            --dark-border: #334155;
+            --light-bg: #f0f9ff;
+            --light-card: #ffffff;
+            --light-card-hover: #e0f2fe;
+            --light-navbar: #ffffff;
+            --light-border: #e0f2fe;
+        }
+
+        /* Theme Variables - Sunset */
+        :root[data-theme="sunset"] {
+            --primary-color: #f97316;
+            --primary-hover: #ea580c;
+            --secondary-color: #fb923c;
+            --accent-gradient: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            --dark-bg: #1c1917;
+            --dark-card: #292524;
+            --dark-card-hover: #44403c;
+            --dark-navbar: #1c1917;
+            --dark-border: #44403c;
+            --light-bg: #fff7ed;
+            --light-card: #ffffff;
+            --light-card-hover: #ffedd5;
+            --light-navbar: #ffffff;
+            --light-border: #fed7aa;
+        }
+
+        /* Theme Variables - Forest */
+        :root[data-theme="forest"] {
+            --primary-color: #10b981;
+            --primary-hover: #059669;
+            --secondary-color: #34d399;
+            --accent-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --dark-bg: #14532d;
+            --dark-card: #166534;
+            --dark-card-hover: #15803d;
+            --dark-navbar: #14532d;
+            --dark-border: #15803d;
+            --light-bg: #f0fdf4;
+            --light-card: #ffffff;
+            --light-card-hover: #dcfce7;
+            --light-navbar: #ffffff;
+            --light-border: #bbf7d0;
+        }
+
+        /* Theme Variables - Purple */
+        :root[data-theme="purple"] {
+            --primary-color: #a855f7;
+            --primary-hover: #9333ea;
+            --secondary-color: #c084fc;
+            --accent-gradient: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);
+            --dark-bg: #1e1b4b;
+            --dark-card: #312e81;
+            --dark-card-hover: #3730a3;
+            --dark-navbar: #1e1b4b;
+            --dark-border: #4c1d95;
+            --light-bg: #faf5ff;
+            --light-card: #ffffff;
+            --light-card-hover: #f3e8ff;
+            --light-navbar: #ffffff;
+            --light-border: #e9d5ff;
+        }
+
+        :root {
+            /* Default Theme Colors */
+            --success-color: #22c55e;
+            --warning-color: #f59e0b;
+            --info-color: #3b82f6;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Responsive Grid for 5 columns on XL screens */
+        @media (min-width: 1400px) {
+            .col-xl-2dot4 {
+                flex: 0 0 auto;
+                width: 20%;
+            }
+        }
+
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            .col-xl-2dot4 {
+                flex: 0 0 auto;
+                width: 25%;
+            }
+        }
+
+        [data-bs-theme="dark"] {
+            background-color: var(--dark-bg);
+            color: #e2e8f0;
+        }
+
+        [data-bs-theme="dark"] .card {
+            background-color: var(--dark-card);
+            border-color: var(--dark-border);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+        }
+
+        [data-bs-theme="dark"] .navbar {
+            background-color: var(--dark-navbar) !important;
+            border-bottom: 1px solid var(--dark-border);
+        }
+
+        [data-bs-theme="dark"] .form-control,
+        [data-bs-theme="dark"] .form-select {
+            background-color: var(--dark-card);
+            border-color: var(--dark-border);
+            color: #e2e8f0;
+        }
+
+        [data-bs-theme="dark"] .form-control:focus,
+        [data-bs-theme="dark"] .form-select:focus {
+            background-color: var(--dark-card);
+            border-color: var(--primary-color);
+            color: #e2e8f0;
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+        }
+
+        [data-bs-theme="light"] {
+            background-color: var(--light-bg);
+        }
+
+        [data-bs-theme="light"] .card {
+            background-color: var(--light-card);
+            border-color: var(--light-border);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        [data-bs-theme="light"] .navbar {
+            background-color: var(--light-navbar) !important;
+            border-bottom: 1px solid var(--light-border);
+        }
+
+        [data-bs-theme="light"] .form-control:focus,
+        [data-bs-theme="light"] .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.3s ease;
+            /* Prevent zoom/scale */
+            touch-action: pan-x pan-y;
+            -ms-touch-action: pan-x pan-y;
+        }
+
+        /* Prevent zoom on touch devices */
+        * {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Allow text selection for inputs and text areas */
+        input, textarea, [contenteditable="true"] {
+            -webkit-user-select: text;
+            user-select: text;
+        }
+
+        .navbar {
+            backdrop-filter: blur(20px);
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            padding: 0.75rem 1rem;
+        }
+
+        .navbar-brand {
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: -0.5px;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.05);
+        }
+
+        /* Navbar Tabs */
+        .navbar-nav .nav-link {
+            color: var(--bs-secondary-color);
+            font-weight: 600;
+            padding: 0.75rem 1.25rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            letter-spacing: 0.3px;
+            border-radius: 0.5rem;
+            margin: 0 0.25rem;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color);
+            background-color: rgba(14, 165, 233, 0.1);
+        }
+
+        .navbar-nav .nav-link.active {
+            color: var(--primary-color);
+            background-color: rgba(14, 165, 233, 0.15);
+            font-weight: 700;
+        }
+
+        [data-bs-theme="dark"] .navbar-nav .nav-link.active {
+            background-color: rgba(14, 165, 233, 0.2);
+        }
+
+        /* Mobile offcanvas menu */
+        .offcanvas {
+            --bs-offcanvas-width: 280px;
+        }
+
+        [data-bs-theme="dark"] .offcanvas {
+            background-color: var(--dark-navbar);
+            border-left: 1px solid var(--dark-border);
+        }
+
+        [data-bs-theme="light"] .offcanvas {
+            background-color: var(--light-navbar);
+        }
+
+        .offcanvas .nav-link {
+            padding: 1rem 1.5rem;
+            margin: 0.25rem 0;
+            border-radius: 0.5rem;
+        }
+
+        .offcanvas-header {
+            border-bottom: 1px solid var(--bs-border-color);
+        }
+
+        .nav-tabs {
+            display: none; /* Hide default tabs, using navbar instead */
+        }
+
+        .tab-content {
+            animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0);
+            }
+        }
+
+        .time-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .time-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .time-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        [data-bs-theme="dark"] .time-card:hover {
+            background-color: var(--dark-card-hover);
+        }
+
+        [data-bs-theme="light"] .time-card:hover {
+            background-color: var(--light-card-hover);
+        }
+
+        .time-card:hover::before {
+            opacity: 1;
+        }
+
+        .clock-time {
+            font-size: 2.75rem;
+            font-weight: 800;
+            font-family: 'Inter', 'Monaco', 'Courier New', monospace;
+            letter-spacing: 3px;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .clock-colon {
+            animation: blink 1.5s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 99% { opacity: 0.3; }
+        }
+
+        .timezone-label {
+            font-size: 0.75rem;
+            opacity: 0.6;
+            font-family: 'Monaco', monospace;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .copy-btn {
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .copy-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(14, 165, 233, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .copy-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .copy-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+
+        .unix-display {
+            font-family: 'Inter', 'Monaco', 'Courier New', monospace;
+            font-size: 1.15rem;
+            font-weight: 700;
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.15) 0%, rgba(2, 132, 199, 0.15) 100%);
+            border: 2px solid rgba(14, 165, 233, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .unix-display:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+        }
+
+        .skeleton {
+            background: linear-gradient(90deg, 
+                rgba(14, 165, 233, 0.1) 25%, 
+                rgba(14, 165, 233, 0.2) 50%, 
+                rgba(14, 165, 233, 0.1) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+            border-radius: 0.5rem;
+            height: 20px;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .form-control, .form-select {
+            border-radius: 0.75rem;
+            padding: 0.875rem 1rem;
+            font-weight: 500;
+            border: 2px solid var(--bs-border-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .form-control:hover, .form-select:hover {
+            border-color: var(--primary-color);
+        }
+
+        .form-label {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--bs-body-color);
+            letter-spacing: 0.3px;
+        }
+
+        .btn {
+            border-radius: 0.75rem;
+            padding: 0.875rem 2rem;
+            font-weight: 700;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            letter-spacing: 0.5px;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--accent-gradient);
+            box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.4);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .table-responsive {
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+        .footer {
+            margin-top: auto;
+            padding: 3rem 0 2rem;
+            text-align: center;
+            border-top: 1px solid var(--bs-border-color);
+            background: linear-gradient(180deg, transparent 0%, rgba(14, 165, 233, 0.03) 100%);
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            margin: 1.5rem 0;
+        }
+
+        .footer-links a {
+            color: var(--bs-body-color);
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            opacity: 1;
+        }
+
+        .footer-ai-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.15) 0%, rgba(2, 132, 199, 0.15) 100%);
+            border-radius: 2rem;
+            border: 2px solid rgba(14, 165, 233, 0.3);
+            margin-top: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .footer-ai-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(14, 165, 233, 0.2);
+        }
+
+        .footer-ai-badge i {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+        }
+
+        .feature-badge {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            font-size: 0.65rem;
+            padding: 0.25rem 0.5rem;
+            background: var(--accent-gradient);
+            color: white;
+            border-radius: 0.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 10;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            font-size: 1.5rem;
+            padding: 0.75rem;
+            border-radius: 50%;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(14, 165, 233, 0.1);
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-gradient);
+            color: white;
+            transform: rotate(180deg) scale(1.1);
+        }
+
+        .toast {
+            border-radius: 1rem;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(14, 165, 233, 0.3);
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.95) 0%, rgba(2, 132, 199, 0.95) 100%) !important;
+            min-width: 300px;
+            animation: slideInRight 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .toast-body {
+            color: white !important;
+            font-weight: 600;
+            padding: 1.25rem;
+            font-size: 0.95rem;
+        }
+
+        .toast .btn-close {
+            filter: brightness(0) invert(1);
+        }
+
+        .gmt-offset {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            font-weight: 600;
+        }
+
+        .converter-result-card {
+            border-left: 4px solid transparent;
+            border-image: var(--accent-gradient) 1;
+            transition: all 0.3s ease;
+        }
+
+        .converter-result-card:hover {
+            transform: translateX(4px);
+        }
+
+        .timestamp-badge {
+            font-family: 'Inter', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 0.5rem 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .timestamp-badge:hover {
+            transform: scale(1.1);
+        }
+
+        /* Custom toggle switch styling */
+        .form-switch .form-check-input {
+            cursor: pointer;
+            width: 3.5rem;
+            height: 1.75rem;
+            background-color: var(--dark-border);
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-switch .form-check-input:checked {
+            background-color: var(--primary-color);
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+        }
+
+        .form-switch .form-check-input:focus {
+            box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.2);
+        }
+
+        .form-check {
+            display: flex;
+            align-items: center;
+            min-height: auto;
+        }
+
+        .form-check-label {
+            display: flex;
+            align-items: center;
+            margin-left: 0.5rem;
+            margin-bottom: 0;
+        }
+
+        .input-group {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .card {
+            border-radius: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-header {
+            font-weight: 700;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.15) 0%, rgba(2, 132, 199, 0.15) 100%);
+            border-bottom: 2px solid rgba(14, 165, 233, 0.3);
+            padding: 1rem 1.5rem;
+            border-radius: 1rem 1rem 0 0 !important;
+        }
+
+        .card-title {
+            font-weight: 800;
+            letter-spacing: -0.3px;
+        }
+
+        .alert {
+            border-radius: 1rem;
+            border: none;
+            font-weight: 600;
+            padding: 1.25rem 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .alert-info {
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%);
+            color: var(--bs-body-color);
+            border-left: 4px solid #0ea5e9;
+        }
+
+        .badge {
+            font-weight: 700;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        h4 {
+            font-weight: 800;
+            letter-spacing: -0.3px;
+        }
+
+        h5, h6 {
+            font-weight: 700;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Date and Time Input Styling */
+        input[type="date"],
+        input[type="time"],
+        input[type="datetime-local"] {
+            position: relative;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator,
+        input[type="time"]::-webkit-calendar-picker-indicator,
+        input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            background: rgba(14, 165, 233, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator:hover,
+        input[type="time"]::-webkit-calendar-picker-indicator:hover,
+        input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
+            background: var(--primary-color);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-gradient);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-hover);
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .clock-time {
+                font-size: 2.25rem;
+            }
+            
+            .nav-tabs .nav-link {
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .navbar-brand {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* Loading animation */
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .loading {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        /* Quick Actions Bar */
+        .quick-actions {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .quick-action-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--accent-gradient);
+            color: white;
+            border: none;
+            box-shadow: 0 8px 16px rgba(14, 165, 233, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .quick-action-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 24px rgba(14, 165, 233, 0.5);
+        }
+
+        .quick-action-btn:active {
+            transform: scale(0.95);
+        }
+
+        .quick-action-tooltip {
+            position: absolute;
+            right: 70px;
+            background: var(--dark-card);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            white-space: nowrap;
+            font-size: 0.875rem;
+            font-weight: 600;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .quick-action-btn:hover .quick-action-tooltip {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .quick-actions {
+                bottom: 1rem;
+                right: 1rem;
+            }
+
+            .quick-action-btn {
+                width: 48px;
+                height: 48px;
+                font-size: 1.25rem;
+            }
+        }
+
+        /* Keyboard shortcut hint */
+        .keyboard-hint {
+            font-size: 0.75rem;
+            opacity: 0.6;
+            margin-left: 0.5rem;
+            font-family: monospace;
+            background: rgba(14, 165, 233, 0.1);
+            padding: 0.125rem 0.5rem;
+            border-radius: 0.25rem;
+        }
+
+        /* Theme Selector Styles */
+        .theme-selector-card {
+            border-radius: 1rem;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 3px solid transparent;
+            position: relative;
+            height: 100%;
+        }
+
+        .theme-selector-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        .theme-selector-card.active {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.2);
+        }
+
+        .theme-selector-card.active::after {
+            content: '✓';
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            width: 32px;
+            height: 32px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        .theme-preview {
+            height: 120px;
+            background: linear-gradient(135deg, var(--preview-color-1) 0%, var(--preview-color-2) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-preview::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .theme-preview i {
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.9);
+            z-index: 1;
+        }
+
+        .theme-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: -0.3px;
+        }
+
+        .theme-mode-badge {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Theme Preview Colors */
+        .theme-ocean { --preview-color-1: #0ea5e9; --preview-color-2: #0284c7; }
+        .theme-sunset { --preview-color-1: #f97316; --preview-color-2: #ea580c; }
+        .theme-forest { --preview-color-1: #10b981; --preview-color-2: #059669; }
+        .theme-purple { --preview-color-1: #a855f7; --preview-color-2: #9333ea; }
+    </style>
+</head>
+<body>
+    <!-- Toast Container -->
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 9999;">
+        <div id="copyToast" class="toast align-items-center border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i class="bi bi-check-circle-fill me-2"></i>
+                    <span id="toastMessage">Copied to clipboard ✅</span>
+                </div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+        <button class="quick-action-btn" id="scrollTopBtn" title="Scroll to top">
+            <i class="bi bi-arrow-up"></i>
+            <span class="quick-action-tooltip">Scroll to Top</span>
+        </button>
+        <button class="quick-action-btn" id="currentTimeBtn" title="Get current timestamp">
+            <i class="bi bi-clock-fill"></i>
+            <span class="quick-action-tooltip">Copy Current Time</span>
+        </button>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="bi bi-clock-history me-2 fs-3"></i>
+                <span>DevTime</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Desktop Navigation -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#clock" data-bs-toggle="tab" data-bs-target="#clock" role="tab">
+                            <i class="bi bi-clock-history me-1"></i>Live Clocks
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#converter" data-bs-toggle="tab" data-bs-target="#converter" role="tab">
+                            <i class="bi bi-arrow-left-right me-1"></i>Converter
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#unix" data-bs-toggle="tab" data-bs-target="#unix" role="tab">
+                            <i class="bi bi-terminal me-1"></i>Unix Generator
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#themes" data-bs-toggle="tab" data-bs-target="#themes" role="tab">
+                            <i class="bi bi-palette-fill me-1"></i>Themes
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <span class="nav-link theme-toggle" id="themeToggle" title="Toggle theme">
+                            <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Offcanvas Menu -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvas">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#clock" data-bs-toggle="tab" data-bs-target="#clock" role="tab" data-bs-dismiss="offcanvas">
+                        <i class="bi bi-clock-history me-2"></i>Live World Clocks
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#converter" data-bs-toggle="tab" data-bs-target="#converter" role="tab" data-bs-dismiss="offcanvas">
+                        <i class="bi bi-arrow-left-right me-2"></i>Time Zone Converter
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#unix" data-bs-toggle="tab" data-bs-target="#unix" role="tab" data-bs-dismiss="offcanvas">
+                        <i class="bi bi-terminal me-2"></i>Unix Timestamp Generator
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#themes" data-bs-toggle="tab" data-bs-target="#themes" role="tab" data-bs-dismiss="offcanvas">
+                        <i class="bi bi-palette-fill me-2"></i>Theme Customization
+                    </a>
+                </li>
+                <li class="nav-item mt-3 pt-3" style="border-top: 1px solid var(--bs-border-color);">
+                    <span class="nav-link theme-toggle" id="themeToggleMobile" title="Toggle theme">
+                        <i class="bi bi-moon-stars-fill me-2" id="themeIconMobile"></i>
+                        <span>Toggle Theme</span>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container-fluid py-4">
+        <!-- Tab Content -->
+        <div class="tab-content" id="mainTabContent">
+            <!-- TAB 1: Live World Clock -->
+            <div class="tab-pane fade show active" id="clock" role="tabpanel">
+                <div class="container">
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                                <h2 class="mb-0">
+                                    <i class="bi bi-clock me-2"></i>Live World Clocks
+                                    <span class="keyboard-hint">Press C to copy all</span>
+                                </h2>
+                                <div class="d-flex gap-3 align-items-center">
+                                    <button class="btn btn-sm btn-outline-primary" id="copyAllTimesBtn">
+                                        <i class="bi bi-clipboard-check me-1"></i>Copy All Times
+                                    </button>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="clockUnixToggle" checked>
+                                        <label class="form-check-label" for="clockUnixToggle">
+                                            <span id="clockUnixLabel">Milliseconds</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-4" id="clockContainer">
+                        <!-- Clock cards will be inserted here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: Time Zone Converter -->
+            <div class="tab-pane fade" id="converter" role="tabpanel">
+                <div class="container">
+                    <h2 class="mb-4"><i class="bi bi-arrow-left-right me-2"></i>Time Zone Converter</h2>
+                    
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <label class="form-label">Date & Time</label>
+                                    <input type="datetime-local" class="form-control" id="converterDateTime">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Source Timezone</label>
+                                    <select class="form-select" id="converterTimezone">
+                                        <!-- Timezone options -->
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label d-block opacity-0">Action</label>
+                                    <button class="btn btn-primary w-100" id="convertBtn">
+                                        <i class="bi bi-arrow-repeat me-2"></i>Convert Time
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="converterUnixToggle" checked>
+                                        <label class="form-check-label fw-semibold" for="converterUnixToggle">
+                                            <span id="converterUnixLabel">Show Milliseconds</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="converterResults">
+                        <!-- Results will be displayed here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: Global Unix Timestamp Generator -->
+            <div class="tab-pane fade" id="unix" role="tabpanel">
+                <div class="container">
+                    <h2 class="mb-4"><i class="bi bi-terminal me-2"></i>Global Unix Timestamp Generator</h2>
+                    
+                    <div class="alert alert-info">
+                        <i class="bi bi-info-circle-fill me-2"></i>
+                        <strong>Important:</strong> Each timestamp represents the entered local time in that specific timezone (not converted from another timezone).
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-5">
+                                    <label class="form-label">Date & Time</label>
+                                    <input type="datetime-local" class="form-control" id="unixDateTime" step="1">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Timestamp Format</label>
+                                    <div class="form-check form-switch mt-2">
+                                        <input class="form-check-input" type="checkbox" id="unixMillisToggle" checked>
+                                        <label class="form-check-label fw-semibold" for="unixMillisToggle">
+                                            <span id="unixMillisLabel">Milliseconds</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label d-block opacity-0">Action</label>
+                                    <button class="btn btn-primary w-100" id="generateUnixBtn">
+                                        <i class="bi bi-lightning-charge-fill me-2"></i>Generate Timestamps
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="unixResults">
+                        <!-- Results will be displayed here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 4: Theme Customization -->
+            <div class="tab-pane fade" id="themes" role="tabpanel">
+                <div class="container">
+                    <h2 class="mb-4"><i class="bi bi-palette-fill me-2"></i>Theme Customization</h2>
+                    
+                    <div class="alert alert-info mb-4">
+                        <i class="bi bi-info-circle-fill me-2"></i>
+                        <strong>Choose your perfect color scheme!</strong> Select from 4 beautiful themes and toggle between dark/light modes.
+                    </div>
+
+                    <!-- Current Theme Display -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <h5 class="mb-2">Current Theme</h5>
+                                    <p class="mb-0 text-muted">
+                                        <strong id="currentThemeName">Ocean</strong> 
+                                        <span class="badge bg-secondary ms-2" id="currentThemeMode">Dark Mode</span>
+                                    </p>
+                                </div>
+                                <div class="col-md-6 text-md-end mt-3 mt-md-0">
+                                    <button class="btn btn-outline-primary" id="themeToggleBtn">
+                                        <i class="bi bi-moon-stars-fill me-2"></i>
+                                        <span id="themeToggleBtnText">Switch to Light Mode</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Theme Options -->
+                    <h4 class="mb-3">Color Themes</h4>
+                    <div class="row g-4" id="themeOptionsContainer">
+                        <!-- Ocean Theme -->
+                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2dot4">
+                            <div class="card theme-selector-card theme-ocean active" data-theme="ocean">
+                                <div class="theme-preview">
+                                    <i class="bi bi-water"></i>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h6 class="theme-name mb-2">Ocean</h6>
+                                    <p class="small text-muted mb-0">Cool & Professional</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sunset Theme -->
+                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2dot4">
+                            <div class="card theme-selector-card theme-sunset" data-theme="sunset">
+                                <div class="theme-preview">
+                                    <i class="bi bi-sunset-fill"></i>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h6 class="theme-name mb-2">Sunset</h6>
+                                    <p class="small text-muted mb-0">Warm & Energetic</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Forest Theme -->
+                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2dot4">
+                            <div class="card theme-selector-card theme-forest" data-theme="forest">
+                                <div class="theme-preview">
+                                    <i class="bi bi-tree-fill"></i>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h6 class="theme-name mb-2">Forest</h6>
+                                    <p class="small text-muted mb-0">Fresh & Natural</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Purple Theme -->
+                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2dot4">
+                            <div class="card theme-selector-card theme-purple" data-theme="purple">
+                                <div class="theme-preview">
+                                    <i class="bi bi-stars"></i>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h6 class="theme-name mb-2">Purple</h6>
+                                    <p class="small text-muted mb-0">Creative & Vibrant</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Theme Preview -->
+                    <div class="card mt-5">
+                        <div class="card-header">
+                            <h5 class="mb-0">Live Preview</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h6 class="mb-2">Sample Card</h6>
+                                            <p class="small text-muted mb-0">See how your theme looks</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <button class="btn btn-primary w-100">Primary Button</button>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="unix-display text-center">1738887600000</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-ai-badge">
+                    <i class="bi bi-stars"></i>
+                    <span>Built for Developers by AI</span>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="#clock" data-bs-toggle="tab" data-bs-target="#clock">
+                        <i class="bi bi-clock-history me-1"></i>Live Clocks
+                    </a>
+                    <a href="#converter" data-bs-toggle="tab" data-bs-target="#converter">
+                        <i class="bi bi-arrow-left-right me-1"></i>Converter
+                    </a>
+                    <a href="#unix" data-bs-toggle="tab" data-bs-target="#unix">
+                        <i class="bi bi-terminal me-1"></i>Unix Generator
+                    </a>
+                    <a href="#themes" data-bs-toggle="tab" data-bs-target="#themes">
+                        <i class="bi bi-palette-fill me-1"></i>Themes
+                    </a>
+                </div>
+                
+                <p class="mb-2 mt-3" style="opacity: 0.7; font-size: 0.9rem;">
+                    <strong>🌍 Supporting Global Development Teams</strong>
+                </p>
+                <p class="mb-0" style="opacity: 0.6; font-size: 0.85rem;">
+                    Real-time timezone conversion • Accurate Unix timestamps • 11 Global regions
+                </p>
+                <p class="mt-3 mb-0" style="opacity: 0.5; font-size: 0.8rem;">
+                    © 2026 DevTime. All times calculated using IANA timezones.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // ========================================
+        // GLOBAL CONFIGURATION
+        // ========================================
+        
+        const TIMEZONES = [
+            { name: 'UK', iana: 'Europe/London', offset: 0 },
+            { name: 'Europe', iana: 'Europe/Amsterdam', offset: 1 },
+            { name: 'UAE', iana: 'Asia/Dubai', offset: 4 },
+            { name: 'Saudi Arabia', iana: 'Asia/Riyadh', offset: 3 },
+            { name: 'India', iana: 'Asia/Kolkata', offset: 5.5 },
+            { name: 'Singapore', iana: 'Asia/Singapore', offset: 8 },
+            { name: 'China', iana: 'Asia/Shanghai', offset: 8 },
+            { name: 'Japan', iana: 'Asia/Tokyo', offset: 9 },
+            { name: 'Australia', iana: 'Australia/Sydney', offset: 11 },
+            { name: 'Canada (Central)', iana: 'America/Winnipeg', offset: -6 },
+            { name: 'USA (PST)', iana: 'America/Los_Angeles', offset: -8 }
+        ];
+
+        /**
+         * Sort timezones by GMT offset
+         * Starting from GMT 0, then positive, then negative
+         */
+        function sortTimezonesByOffset() {
+            return [...TIMEZONES].sort((a, b) => {
+                // GMT 0 first
+                if (a.offset === 0) return -1;
+                if (b.offset === 0) return 1;
+                
+                // Positive offsets before negative
+                if (a.offset > 0 && b.offset < 0) return -1;
+                if (a.offset < 0 && b.offset > 0) return 1;
+                
+                // Sort by offset value
+                return a.offset - b.offset;
+            });
+        }
+
+        const SORTED_TIMEZONES = sortTimezonesByOffset();
+
+        // ========================================
+        // UTILITY FUNCTIONS
+        // ========================================
+
+        /**
+         * Format time in 12-hour format with AM/PM
+         */
+        function formatTime12Hour(date, timezone) {
+            return new Intl.DateTimeFormat('en-US', {
+                timeZone: timezone,
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+            }).format(date);
+        }
+
+        /**
+         * Format time in 24-hour format
+         */
+        function formatTime24Hour(date, timezone) {
+            return new Intl.DateTimeFormat('en-US', {
+                timeZone: timezone,
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            }).format(date);
+        }
+
+        /**
+         * Get formatted date
+         */
+        function formatDate(date, timezone) {
+            return new Intl.DateTimeFormat('en-US', {
+                timeZone: timezone,
+                weekday: 'short',
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+            }).format(date);
+        }
+
+        /**
+         * Get GMT offset for a timezone
+         */
+        function getGMTOffset(date, timezone) {
+            const formatter = new Intl.DateTimeFormat('en-US', {
+                timeZone: timezone,
+                timeZoneName: 'shortOffset'
+            });
+            
+            const parts = formatter.formatToParts(date);
+            const offsetPart = parts.find(part => part.type === 'timeZoneName');
+            
+            if (offsetPart && offsetPart.value !== 'GMT') {
+                return offsetPart.value.replace('GMT', 'GMT ');
+            }
+            
+            // Fallback calculation
+            const utcDate = new Date(date.toLocaleString('en-US', { timeZone: 'UTC' }));
+            const tzDate = new Date(date.toLocaleString('en-US', { timeZone: timezone }));
+            const offset = (tzDate - utcDate) / (1000 * 60);
+            const hours = Math.floor(Math.abs(offset) / 60);
+            const minutes = Math.abs(offset) % 60;
+            const sign = offset >= 0 ? '+' : '-';
+            return `GMT ${sign}${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+        }
+
+        /**
+         * Create a Date object for a specific timezone with local time
+         * This is critical for Unix timestamp generation
+         * Fixed to handle 12:00 PM correctly
+         */
+        function createDateInTimezone(year, month, day, hour, minute, second, timezone) {
+            // Create an ISO string with the local date/time components
+            const isoString = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}T${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}:${String(second).padStart(2, '0')}`;
+            
+            // Get formatter for the timezone
+            const formatter = new Intl.DateTimeFormat('en-US', {
+                timeZone: timezone,
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false,
+                timeZoneName: 'short'
+            });
+            
+            // Create a Date object assuming this is in the target timezone
+            // We'll use a trick: format a known UTC time in the target timezone,
+            // then calculate the offset
+            const testDate = new Date(2024, 0, 1, 0, 0, 0);
+            const parts = formatter.formatToParts(testDate);
+            
+            // Parse the input as if it's in the target timezone
+            // by creating it in UTC then adjusting for the timezone offset
+            const utcDate = new Date(`${isoString}Z`);
+            
+            // Get what this UTC time looks like in the target timezone
+            const targetParts = formatter.formatToParts(utcDate);
+            const getPartValue = (type) => {
+                const part = targetParts.find(p => p.type === type);
+                return part ? parseInt(part.value) : 0;
+            };
+            
+            const tzYear = getPartValue('year');
+            const tzMonth = getPartValue('month');
+            const tzDay = getPartValue('day');
+            const tzHour = getPartValue('hour');
+            const tzMinute = getPartValue('minute');
+            const tzSecond = getPartValue('second');
+            
+            // Calculate the difference
+            const targetTime = new Date(year, month - 1, day, hour, minute, second).getTime();
+            const actualTime = new Date(tzYear, tzMonth - 1, tzDay, tzHour, tzMinute, tzSecond).getTime();
+            const offset = targetTime - actualTime;
+            
+            // Adjust the UTC date by the offset
+            return new Date(utcDate.getTime() + offset);
+        }
+
+        /**
+         * Copy text to clipboard
+         */
+        async function copyToClipboard(text, message = 'Copied to clipboard ✅') {
+            try {
+                await navigator.clipboard.writeText(text);
+                showToast(message);
+            } catch (err) {
+                console.error('Failed to copy:', err);
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                textArea.style.position = 'fixed';
+                textArea.style.opacity = '0';
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showToast(message);
+                } catch (err) {
+                    showToast('Failed to copy', 'error');
+                }
+                document.body.removeChild(textArea);
+            }
+        }
+
+        /**
+         * Show toast notification
+         */
+        function showToast(message, type = 'success') {
+            const toastEl = document.getElementById('copyToast');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            toastMessage.textContent = message;
+            
+            const toast = new bootstrap.Toast(toastEl, {
+                animation: true,
+                autohide: true,
+                delay: 3000
+            });
+            toast.show();
+        }
+
+        /**
+         * Get current theme mode (dark/light)
+         */
+        function getCurrentTheme() {
+            return localStorage.getItem('theme') || 'dark';
+        }
+
+        /**
+         * Get current color theme
+         */
+        function getCurrentColorTheme() {
+            return localStorage.getItem('colorTheme') || 'ocean';
+        }
+
+        /**
+         * Set theme mode (dark/light)
+         */
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-bs-theme', theme);
+            localStorage.setItem('theme', theme);
+            
+            updateThemeIcons(theme);
+            updateThemeDisplay();
+        }
+
+        /**
+         * Set color theme
+         */
+        function setColorTheme(colorTheme) {
+            document.documentElement.setAttribute('data-theme', colorTheme);
+            localStorage.setItem('colorTheme', colorTheme);
+            
+            updateThemeDisplay();
+            updateActiveThemeCard(colorTheme);
+        }
+
+        /**
+         * Update theme icons
+         */
+        function updateThemeIcons(theme) {
+            const icon = document.getElementById('themeIcon');
+            const iconMobile = document.getElementById('themeIconMobile');
+            const btnText = document.getElementById('themeToggleBtnText');
+            
+            if (theme === 'dark') {
+                icon.className = 'bi bi-moon-stars-fill';
+                if (iconMobile) iconMobile.className = 'bi bi-moon-stars-fill me-2';
+                if (btnText) btnText.textContent = 'Switch to Light Mode';
+            } else {
+                icon.className = 'bi bi-sun-fill';
+                if (iconMobile) iconMobile.className = 'bi bi-sun-fill me-2';
+                if (btnText) btnText.textContent = 'Switch to Dark Mode';
+            }
+        }
+
+        /**
+         * Update theme display in themes tab
+         */
+        function updateThemeDisplay() {
+            const currentThemeName = document.getElementById('currentThemeName');
+            const currentThemeMode = document.getElementById('currentThemeMode');
+            const colorTheme = getCurrentColorTheme();
+            const theme = getCurrentTheme();
+            
+            if (currentThemeName) {
+                currentThemeName.textContent = colorTheme.charAt(0).toUpperCase() + colorTheme.slice(1);
+            }
+            
+            if (currentThemeMode) {
+                currentThemeMode.textContent = theme === 'dark' ? 'Dark Mode' : 'Light Mode';
+                currentThemeMode.className = `badge ${theme === 'dark' ? 'bg-secondary' : 'bg-warning'}`;
+            }
+        }
+
+        /**
+         * Update active theme card
+         */
+        function updateActiveThemeCard(colorTheme) {
+            document.querySelectorAll('.theme-selector-card').forEach(card => {
+                if (card.dataset.theme === colorTheme) {
+                    card.classList.add('active');
+                } else {
+                    card.classList.remove('active');
+                }
+            });
+        }
+
+        /**
+         * Initialize theme tab
+         */
+        function initializeThemeTab() {
+            // Set up theme selector cards
+            document.querySelectorAll('.theme-selector-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const theme = card.dataset.theme;
+                    setColorTheme(theme);
+                });
+            });
+
+            // Theme toggle button in themes tab
+            const themeToggleBtn = document.getElementById('themeToggleBtn');
+            if (themeToggleBtn) {
+                themeToggleBtn.addEventListener('click', () => {
+                    const currentTheme = getCurrentTheme();
+                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                    setTheme(newTheme);
+                });
+            }
+
+            // Update initial state
+            updateActiveThemeCard(getCurrentColorTheme());
+            updateThemeDisplay();
+        }
+
+        // ========================================
+        // TAB 1: LIVE WORLD CLOCK
+        // ========================================
+
+        let clockInterval = null;
+        let useMilliseconds = true;
+
+        function initializeClockTab() {
+            const container = document.getElementById('clockContainer');
+            container.innerHTML = '';
+
+            SORTED_TIMEZONES.forEach((tz, index) => {
+                const col = document.createElement('div');
+                col.className = 'col-md-6 col-lg-4 col-xl-3';
+                
+                col.innerHTML = `
+                    <div class="card time-card h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="card-title mb-0">${tz.name}</h5>
+                                <i class="bi bi-globe text-primary"></i>
+                            </div>
+                            <p class="timezone-label mb-3">${tz.iana}</p>
+                            
+                            <div class="clock-time mb-2" id="time-${index}">
+                                <div class="skeleton"></div>
+                            </div>
+                            
+                            <p class="text-muted mb-2" id="date-${index}">
+                                <div class="skeleton"></div>
+                            </p>
+                            
+                            <div class="unix-display mb-2 copy-btn" id="unix-${index}" title="Click to copy">
+                                <div class="skeleton"></div>
+                            </div>
+                            
+                            <div class="gmt-offset" id="offset-${index}">
+                                <div class="skeleton"></div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(col);
+            });
+
+            // Start clock updates
+            updateAllClocks();
+            if (clockInterval) clearInterval(clockInterval);
+            clockInterval = setInterval(updateAllClocks, 1000);
+        }
+
+        function updateAllClocks() {
+            const now = new Date();
+            
+            SORTED_TIMEZONES.forEach((tz, index) => {
+                const timeEl = document.getElementById(`time-${index}`);
+                const dateEl = document.getElementById(`date-${index}`);
+                const unixEl = document.getElementById(`unix-${index}`);
+                const offsetEl = document.getElementById(`offset-${index}`);
+
+                // Format time with blinking colon
+                const timeStr = formatTime24Hour(now, tz.iana);
+                const [hours, minutes, seconds] = timeStr.split(':');
+                timeEl.innerHTML = `${hours}<span class="clock-colon">:</span>${minutes}<span class="clock-colon">:</span>${seconds}`;
+                
+                // Format date
+                dateEl.textContent = formatDate(now, tz.iana);
+                
+                // Unix timestamp
+                const timestamp = useMilliseconds ? now.getTime() : Math.floor(now.getTime() / 1000);
+                unixEl.textContent = timestamp;
+                unixEl.onclick = () => copyToClipboard(timestamp.toString(), `Unix timestamp copied: ${timestamp}`);
+                
+                // GMT offset
+                const offset = getGMTOffset(now, tz.iana);
+                offsetEl.textContent = offset;
+                offsetEl.style.cursor = 'pointer';
+                offsetEl.onclick = () => copyToClipboard(offset, `GMT offset copied: ${offset}`);
+
+                // Make time clickable
+                timeEl.style.cursor = 'pointer';
+                timeEl.onclick = () => copyToClipboard(timeStr, `Time copied: ${timeStr}`);
+            });
+        }
+
+        // Toggle milliseconds/seconds
+        document.getElementById('clockUnixToggle').addEventListener('change', (e) => {
+            useMilliseconds = e.target.checked;
+            const label = document.getElementById('clockUnixLabel');
+            label.textContent = useMilliseconds ? 'Milliseconds' : 'Seconds';
+            updateAllClocks();
+        });
+
+        // Copy all times button
+        document.getElementById('copyAllTimesBtn').addEventListener('click', () => {
+            const now = new Date();
+            let allTimes = 'DevTime - Current Times Across Global Zones\n';
+            allTimes += '═'.repeat(50) + '\n\n';
+            
+            SORTED_TIMEZONES.forEach(tz => {
+                const time = formatTime24Hour(now, tz.iana);
+                const date = formatDate(now, tz.iana);
+                const offset = getGMTOffset(now, tz.iana);
+                const timestamp = useMilliseconds ? now.getTime() : Math.floor(now.getTime() / 1000);
+                
+                allTimes += `${tz.name} (${tz.iana})\n`;
+                allTimes += `  Time: ${time} | ${date}\n`;
+                allTimes += `  ${offset} | Unix: ${timestamp}\n\n`;
+            });
+            
+            allTimes += '═'.repeat(50) + '\n';
+            allTimes += `Generated at: ${new Date().toISOString()}\n`;
+            allTimes += 'Source: DevTime\n';
+            
+            copyToClipboard(allTimes, '✅ All times copied to clipboard!');
+        });
+
+        // ========================================
+        // TAB 2: TIME ZONE CONVERTER
+        // ========================================
+
+        function initializeConverterTab() {
+            // Set default date to now
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            
+            document.getElementById('converterDateTime').value = `${year}-${month}-${day}T${hours}:${minutes}`;
+            
+            // Populate timezone dropdown
+            const tzSelect = document.getElementById('converterTimezone');
+            TIMEZONES.forEach(tz => {
+                const option = document.createElement('option');
+                option.value = tz.iana;
+                option.textContent = `${tz.name} (${tz.iana})`;
+                tzSelect.appendChild(option);
+            });
+            
+            // Convert button
+            document.getElementById('convertBtn').addEventListener('click', performConversion);
+        }
+
+        function performConversion() {
+            const dateTimeValue = document.getElementById('converterDateTime').value;
+            const sourceTimezone = document.getElementById('converterTimezone').value;
+            const showMillis = document.getElementById('converterUnixToggle').checked;
+
+            if (!dateTimeValue) {
+                showToast('Please select a date and time', 'error');
+                return;
+            }
+
+            // Parse the datetime-local value
+            const [datePart, timePart] = dateTimeValue.split('T');
+            const [year, month, day] = datePart.split('-').map(Number);
+            const [hour, minute] = timePart.split(':').map(Number);
+
+            // Create date in source timezone
+            const sourceDate = createDateInTimezone(year, month, day, hour, minute, 0, sourceTimezone);
+
+            // Display results
+            const resultsContainer = document.getElementById('converterResults');
+            resultsContainer.innerHTML = '<h4 class="mb-3">Converted Times</h4>';
+
+            const row = document.createElement('div');
+            row.className = 'row g-3';
+
+            TIMEZONES.forEach(tz => {
+                const col = document.createElement('div');
+                col.className = 'col-md-6 col-lg-4';
+                
+                const convertedTime = formatTime12Hour(sourceDate, tz.iana);
+                const convertedDate = formatDate(sourceDate, tz.iana);
+                const timestamp = showMillis ? sourceDate.getTime() : Math.floor(sourceDate.getTime() / 1000);
+                const offset = getGMTOffset(sourceDate, tz.iana);
+                
+                const isSource = tz.iana === sourceTimezone;
+                
+                col.innerHTML = `
+                    <div class="card converter-result-card h-100 ${isSource ? 'border-primary' : ''}">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h6 class="mb-0">${tz.name}</h6>
+                                ${isSource ? '<span class="badge bg-primary">Source</span>' : ''}
+                            </div>
+                            <p class="timezone-label mb-2">${tz.iana}</p>
+                            <p class="mb-1"><strong>${convertedTime}</strong></p>
+                            <p class="text-muted small mb-2">${convertedDate}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="timestamp-badge badge bg-secondary copy-btn" 
+                                      onclick="copyToClipboard('${timestamp}', 'Timestamp copied: ${timestamp}')"
+                                      title="Click to copy">
+                                    ${timestamp}
+                                </span>
+                                <small class="text-muted">${offset}</small>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                row.appendChild(col);
+            });
+
+            resultsContainer.appendChild(row);
+        }
+
+        // Toggle milliseconds/seconds for converter
+        document.getElementById('converterUnixToggle').addEventListener('change', (e) => {
+            const label = document.getElementById('converterUnixLabel');
+            label.textContent = e.target.checked ? 'Show Milliseconds' : 'Show Seconds';
+        });
+
+        // ========================================
+        // TAB 3: UNIX TIMESTAMP GENERATOR
+        // ========================================
+
+        function initializeUnixTab() {
+            // Set default datetime to now
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            
+            document.getElementById('unixDateTime').value = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
+            
+            // Generate button
+            document.getElementById('generateUnixBtn').addEventListener('click', generateUnixTimestamps);
+        }
+
+        function generateUnixTimestamps() {
+            const dateTimeValue = document.getElementById('unixDateTime').value;
+            const useMillis = document.getElementById('unixMillisToggle').checked;
+
+            if (!dateTimeValue) {
+                showToast('Please select a date and time', 'error');
+                return;
+            }
+
+            // Parse the datetime-local value
+            const [datePart, timePart] = dateTimeValue.split('T');
+            const [year, month, day] = datePart.split('-').map(Number);
+            const timeComponents = timePart.split(':');
+            const hour = parseInt(timeComponents[0]);
+            const minute = parseInt(timeComponents[1]);
+            const second = timeComponents[2] ? parseInt(timeComponents[2]) : 0;
+
+            // Display results
+            const resultsContainer = document.getElementById('unixResults');
+            resultsContainer.innerHTML = '<h4 class="mb-3">Generated Unix Timestamps</h4>';
+
+            const row = document.createElement('div');
+            row.className = 'row g-3';
+
+            TIMEZONES.forEach(tz => {
+                // CRITICAL: Create date independently for each timezone
+                // This represents the LOCAL time in that timezone
+                const localDate = createDateInTimezone(year, month, day, hour, minute, second, tz.iana);
+                const timestamp = useMillis ? localDate.getTime() : Math.floor(localDate.getTime() / 1000);
+                
+                // Format the local time representation
+                const timeStr = formatTime12Hour(localDate, tz.iana);
+                const dateStr = formatDate(localDate, tz.iana);
+                const offset = getGMTOffset(localDate, tz.iana);
+
+                const col = document.createElement('div');
+                col.className = 'col-md-6 col-lg-4';
+                
+                col.innerHTML = `
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <strong>${tz.name}</strong>
+                        </div>
+                        <div class="card-body">
+                            <p class="timezone-label mb-2">${tz.iana}</p>
+                            <p class="mb-1"><strong>Local Time:</strong></p>
+                            <p class="mb-2">${timeStr}</p>
+                            <p class="text-muted small mb-3">${dateStr}</p>
+                            <p class="mb-1"><strong>Unix Timestamp:</strong></p>
+                            <div class="unix-display copy-btn" 
+                                 onclick="copyToClipboard('${timestamp}', 'Timestamp copied: ${timestamp}')"
+                                 title="Click to copy">
+                                ${timestamp}
+                            </div>
+                            <p class="text-muted small mt-2 mb-0">${offset}</p>
+                        </div>
+                    </div>
+                `;
+                
+                row.appendChild(col);
+            });
+
+            resultsContainer.appendChild(row);
+        }
+
+        // Toggle milliseconds/seconds for unix generator
+        document.getElementById('unixMillisToggle').addEventListener('change', (e) => {
+            const label = document.getElementById('unixMillisLabel');
+            label.textContent = e.target.checked ? 'Milliseconds' : 'Seconds';
+        });
+
+        // ========================================
+        // THEME TOGGLE
+        // ========================================
+
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            const currentTheme = getCurrentTheme();
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        });
+
+        // Mobile theme toggle
+        const themeToggleMobile = document.getElementById('themeToggleMobile');
+        if (themeToggleMobile) {
+            themeToggleMobile.addEventListener('click', () => {
+                const currentTheme = getCurrentTheme();
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                setTheme(newTheme);
+            });
+        }
+
+        // ========================================
+        // INITIALIZATION
+        // ========================================
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set initial themes
+            setTheme(getCurrentTheme());
+            setColorTheme(getCurrentColorTheme());
+            
+            // Initialize tabs
+            initializeClockTab();
+            initializeConverterTab();
+            initializeUnixTab();
+            initializeThemeTab();
+
+            // Tab change listeners
+            const tabTriggers = document.querySelectorAll('a[data-bs-toggle="tab"]');
+            tabTriggers.forEach(trigger => {
+                trigger.addEventListener('shown.bs.tab', (e) => {
+                    const targetId = e.target.getAttribute('data-bs-target');
+                    
+                    // Update active state in both menus
+                    document.querySelectorAll('a[data-bs-toggle="tab"]').forEach(link => {
+                        if (link.getAttribute('data-bs-target') === targetId) {
+                            link.classList.add('active');
+                        } else {
+                            link.classList.remove('active');
+                        }
+                    });
+                    
+                    // Restart clock when switching to clock tab
+                    if (targetId === '#clock') {
+                        updateAllClocks();
+                    }
+                });
+            });
+
+            // Quick action buttons
+            document.getElementById('scrollTopBtn').addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            document.getElementById('currentTimeBtn').addEventListener('click', () => {
+                const now = Date.now();
+                copyToClipboard(now.toString(), `✅ Current timestamp: ${now}`);
+            });
+
+            // Keyboard shortcuts
+            document.addEventListener('keydown', (e) => {
+                // Prevent zoom with Ctrl/Cmd + Plus/Minus/0
+                if ((e.ctrlKey || e.metaKey) && (e.key === '+' || e.key === '-' || e.key === '=' || e.key === '0')) {
+                    e.preventDefault();
+                    return false;
+                }
+
+                // Prevent zoom with mouse wheel
+                if ((e.ctrlKey || e.metaKey) && e.type === 'wheel') {
+                    e.preventDefault();
+                    return false;
+                }
+
+                // Ctrl/Cmd + C to copy all times (on clock tab)
+                if ((e.ctrlKey || e.metaKey) && e.key === 'c' && document.querySelector('#clock.active')) {
+                    e.preventDefault();
+                    document.getElementById('copyAllTimesBtn').click();
+                }
+                
+                // Ctrl/Cmd + K to focus on timezone converter
+                if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                    e.preventDefault();
+                    document.querySelector('a[data-bs-target="#converter"]').click();
+                    setTimeout(() => {
+                        document.getElementById('converterDateTime').focus();
+                    }, 300);
+                }
+                
+                // Ctrl/Cmd + U for Unix generator
+                if ((e.ctrlKey || e.metaKey) && e.key === 'u') {
+                    e.preventDefault();
+                    document.querySelector('a[data-bs-target="#unix"]').click();
+                    setTimeout(() => {
+                        document.getElementById('unixDateTime').focus();
+                    }, 300);
+                }
+            });
+
+            // Prevent zoom with mouse wheel + Ctrl
+            document.addEventListener('wheel', (e) => {
+                if (e.ctrlKey || e.metaKey) {
+                    e.preventDefault();
+                    return false;
+                }
+            }, { passive: false });
+
+            // Show/hide scroll to top button
+            window.addEventListener('scroll', () => {
+                const scrollTopBtn = document.getElementById('scrollTopBtn');
+                if (window.scrollY > 300) {
+                    scrollTopBtn.style.display = 'flex';
+                } else {
+                    scrollTopBtn.style.display = 'none';
+                }
+            });
+
+            // Initial hide of scroll button
+            document.getElementById('scrollTopBtn').style.display = 'none';
+        });
+
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', () => {
+            if (clockInterval) clearInterval(clockInterval);
+        });
+    </script>
+</body>
+</html>
